@@ -1,15 +1,15 @@
 #!/bin/bash
 # loop over all input arguments (a list of domain names) and blacklist them via pointing them to localhost
 
-echo > /tmp/hosts
+echo > /tmp/hostaliases
 
 for var in "$@"
 do
     echo "127.0.0.1 $var" >> /tmp/hostaliases
 done
 cat /etc/hosts >> /tmp/hostaliases
-cp -y /tmp/hostaliases /etc/hosts
-sudo cp -y /tmp/hostaliases /etc/hosts
+cp -f /tmp/hostaliases /etc/hosts 2>/dev/null
+if [ $? -ne 0 ]; then sudo cp -f /tmp/hostaliases /etc/hosts
 
 #cat /etc/hosts
 #sleep 30

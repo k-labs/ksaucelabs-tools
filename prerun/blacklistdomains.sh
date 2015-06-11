@@ -5,7 +5,8 @@ echo > /tmp/hostaliases
 
 for var in "$@"
 do
-    echo "127.0.0.1 $var" >> /tmp/hostaliases
+    # test: a google address
+    echo "173.194.45.49 $var" >> /tmp/hostaliases
 done
 cat /etc/hosts >> /tmp/hostaliases
 cp -f /tmp/hostaliases /etc/hosts 2>/dev/null

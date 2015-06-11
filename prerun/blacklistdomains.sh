@@ -5,14 +5,14 @@ echo > /tmp/hostaliases
 
 for var in "$@"
 do
-    echo "108.168.208.206 $var" >> /tmp/hostaliases
+    echo "127.127.127.127 $var" >> /tmp/hostaliases
 done
 cat /etc/hosts >> /tmp/hostaliases
 cp -f /tmp/hostaliases /etc/hosts 2>/dev/null
 if [ $? -ne 0 ]; then sudo cp -f /tmp/hostaliases /etc/hosts
 
 # for good measure, make sure that we drop quickly all outgoing requests
-sudo iptables -I OUTPUT -p tcp -d 108.168.208.206 -j REJECT
+sudo iptables -I OUTPUT -p tcp -d 127.127.127.127 -j REJECT
 
 #cat /etc/hosts
 #sleep 30

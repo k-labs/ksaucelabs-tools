@@ -20,11 +20,14 @@ sudo cp -f /tmp/hostaliases /etc/hosts
 # NB: it seems that this is not installed in the Saucelabs VMs...
 ###sudo iptables -I OUTPUT -p tcp -d $BLACKHOLEIP -j REJECT
 
+# tests: how can we send any output to something we can grab to debug? e.g. a saucelabs log or in the video out?
+echo 'hahaha' >> /var/log/automator.log
+sleep 30
 xterm -e "cat /etc/hosts && sleep 30"
 
 #cat /etc/hosts
 #sleep 30
 
-# if running via sauceconnect - see https://support.saucelabs.com/customer/portal/articles/2005376-edit-the-domain-name-system-dns-within-the-sauce-labs-virtual-machine-vm-
-#
+# if running via sauceconnect - we might possibly do this instead...
+# see https://support.saucelabs.com/customer/portal/articles/2005376-edit-the-domain-name-system-dns-within-the-sauce-labs-virtual-machine-vm-
 #export HOSTALIASES=/tmp/hostaliases

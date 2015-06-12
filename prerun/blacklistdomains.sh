@@ -18,9 +18,10 @@ sudo cp -f /tmp/hostaliases /etc/hosts
 # for good measure, make sure that we drop *quickly* all requests to the blackholed IP
 # (alternative: set up a web server on ec2-54-148-20-76.us-west-2.compute.amazonaws.com)
 # NB: it seems that this is not installed in the Saucelabs VMs...
-sudo iptables -I OUTPUT -p tcp -d $BLACKHOLEIP -j REJECT
+###sudo iptables -I OUTPUT -p tcp -d $BLACKHOLEIP -j REJECT
 
 xterm -e "cat /etc/hosts && sleep 30"
+
 #cat /etc/hosts
 #sleep 30
 

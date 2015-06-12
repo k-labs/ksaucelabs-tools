@@ -22,8 +22,8 @@ sudo cp -f /tmp/hostaliases /etc/hosts
 
 # tests: how can we send any output to something we can grab to debug? e.g. a saucelabs log or in the video out?
 echo 'hahaha' >> /home/chef/log/automator.log
-sleep 30
-xterm -e "cat /etc/hosts && sleep 30"
+#sleep 30
+xterm -e "cat /etc/hosts && sleep 60"
 
 #cat /etc/hosts
 #sleep 30

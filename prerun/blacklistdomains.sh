@@ -4,7 +4,9 @@
 # retrieve public IP of a VM owned by kaliop which we never use to host sites
 # this can take a couple of seconds, but we try not to blacklist any IP which MIGHT get used...
 # (using localhost IPs does not seem to work)
-BLACKHOLEIP=`dig +short ec2-54-148-20-76.us-west-2.compute.amazonaws.com`
+#BLACKHOLEIP=`dig +short ec2-54-148-20-76.us-west-2.compute.amazonaws.com`
+# a google ip :-)
+BLACKHOLEIP=173.194.45.48
 
 echo > /tmp/hostaliases
 for var in "$@"
@@ -17,13 +19,13 @@ sudo cp -f /tmp/hostaliases /etc/hosts
 
 # for good measure, make sure that we drop *quickly* all requests to the blackholed IP
 # (alternative: set up a web server on ec2-54-148-20-76.us-west-2.compute.amazonaws.com)
-# NB: it seems that this is not installed in the Saucelabs VMs...
+# NB: it seems that iptables is not installed in the Saucelabs VMs...
 ###sudo iptables -I OUTPUT -p tcp -d $BLACKHOLEIP -j REJECT
 
 # tests: how can we send any output to something we can grab to debug? e.g. a saucelabs log or in the video out?
-echo 'hahaha' >> /home/chef/log/automator.log
+#echo 'hahaha' >> /home/chef/log/automator.log
 #sleep 30
-xterm -e "cat /etc/hosts && sleep 60"
+#xterm -e "cat /etc/hosts && sleep 60"
 
 #cat /etc/hosts
 #sleep 30

@@ -21,7 +21,7 @@ sudo cp -f /tmp/hostaliases /etc/hosts
 ###sudo iptables -I OUTPUT -p tcp -d $BLACKHOLEIP -j REJECT
 
 # tests: how can we send any output to something we can grab to debug? e.g. a saucelabs log or in the video out?
-echo 'hahaha' >> /var/log/automator.log
+echo 'hahaha' >> /home/chef/log/automator.log
 sleep 30
 xterm -e "cat /etc/hosts && sleep 30"
 

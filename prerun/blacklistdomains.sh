@@ -1,6 +1,10 @@
 #!/bin/bash
 # loop over all input arguments (a list of domain names) and blacklist them via pointing them to a blackhole
 
+echo 'aaaa';
+
+echo 'bbbb' 1>&2;
+
 # retrieve public IP of a VM owned by kaliop which we never use to host sites
 # this can take a couple of seconds, but we try not to blacklist any IP which MIGHT get used...
 # (using localhost IPs does not seem to work)

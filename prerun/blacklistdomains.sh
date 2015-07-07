@@ -20,14 +20,14 @@ sudo cp -f /tmp/hostaliases /etc/hosts
 # for good measure, make sure that we drop *quickly* all requests to the blackholed IP
 # (alternative: set up a web server on ec2-54-148-20-76.us-west-2.compute.amazonaws.com)
 # NB: it seems that iptables is not installed in the Saucelabs VMs...
-###sudo iptables -I OUTPUT -p tcp -d $BLACKHOLEIP -j REJECT
+sudo iptables -I OUTPUT -p tcp -d $BLACKHOLEIP -j REJECT
 
 # tests: how can we send any output to something we can grab to debug? e.g. a saucelabs log or in the video out?
 #echo 'hahaha' >> /home/chef/log/automator.log
 #sleep 30
 #xterm -e "cat /etc/hosts && sleep 60"
 
-#cat /etc/hosts
+cat /etc/hosts
 #sleep 30
 
 # if running via sauceconnect - we might possibly do this instead...
